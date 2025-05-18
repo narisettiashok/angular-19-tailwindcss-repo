@@ -10,14 +10,12 @@ import { FooterComponent } from './shared/footer/footer.component';
   selector: 'app-root',
   imports: [RouterOutlet, ServicesModule, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'thinkhub-creatives';
+  title = 'angular-19-tailwindcss-repo';
 
-  constructor(private flowbiteService: FlowbiteService) {
-
-  }
+  constructor(private flowbiteService: FlowbiteService) {}
 
   ngOnInit(): void {
     this.flowbiteService.loadFlowbite((flowbite) => {

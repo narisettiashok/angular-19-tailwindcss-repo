@@ -1,5 +1,5 @@
 {
-  "name": "thinkhub-creatives",
+  "name": "angular-19-tailwindcss-repo",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr": "node dist/thinkhub-creatives/server/server.mjs",
+    "serve:ssr": "node dist/angular-19-tailwindcss-repo/server/server.mjs",
     "build:static": "ng build --prerender"
   },
   "private": true,
@@ -47,6 +47,6 @@
   },
   "engines": {
     "node": "24.0.2",
-    "nvm": "11.3.0"
+    "npm": "11.3.0"
   }
 }
