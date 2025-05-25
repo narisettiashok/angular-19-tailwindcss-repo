@@ -4,3 +4,40 @@
 @source "../node_modules/flowbite";
 
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant ocean (&:where(.ocean, .ocean *));
+
+@import "./assets/css/themes/dark.css";
+@import "./assets/css/themes/ocean.css";
+
+/* DEFAULT (Light Theme) */
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  --color-primary: black;
+  --color-secondary: #8b5cf6;
+  --color-background: #f9fafb;
+  --color-surface: #ffffff;
+  --color-text: #1f2937;
+}
+
+@layer utilities {
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  .text-primary {
+    color: var(--color-primary);
+  }
+  .bg-secondary {
+    background-color: var(--color-secondary);
+  }
+  .bg-background {
+    background-color: var(--color-background);
+  }
+  .bg-surface {
+    background-color: var(--color-surface);
+  }
+  .text-text {
+    color: var(--color-text);
+  }
+}

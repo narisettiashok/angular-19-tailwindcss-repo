@@ -10,7 +10,8 @@ A clean and modern Boiler Plate template using **Angular 19**, **Tailwind CSS**,
 
 - ✅ Built with Angular 19 (Standalone API)
 - 🎨 Tailwind CSS v4 for utility-first styling
-- 🌊 Pre-integrated Flowbite UI components
+- 🌈 Multi-theme support — Light, Dark, and Ocean themes with manual toggling
+- 🌊 Pre-integrated Flowbite UI components for ready-to-use UI elements
 - 🧩 Fully standalone architecture — no `AppModule` required
 - 🧼 Clean and modular project structure
 - 📦 Optimized for production and deployment
@@ -164,6 +165,117 @@ angular-19-tailwindcss-repo/
 - [Angular 19](https://angular.io/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Flowbite](https://flowbite.com/)
+
+---
+
+## 🎨 Multi-Theme Support
+
+This project supports **three built-in themes**:
+
+- 🌞 **Light Theme** (Default)
+- 🌙 **Dark Theme**
+- 🌊 **Ocean Theme**
+
+---
+
+### 📁 Theme File Locations
+
+| Theme | File Path                         |
+| ----- | --------------------------------- |
+| Light | `src/styles.css` (via `:root {}`) |
+| Dark  | `src/assets/css/themes/dark.css`  |
+| Ocean | `src/assets/css/themes/ocean.css` |
+
+---
+
+---
+
+### 💡 Theme Usage
+
+The `<html>` tag is assigned a class dynamically:
+
+```html
+<html class="dark">
+  <!-- For dark theme -->
+</html>
+
+<html class="ocean">
+  <!-- For ocean theme -->
+</html>
+
+<html>
+  <!-- Default (light theme via :root) -->
+</html>
+```
+
+### Buttons control the theme:
+
+```
+<div class="space-x-2">
+  <button (click)="setTheme('light')" class="btn">🌞 Light</button>
+  <button (click)="setTheme('dark')" class="btn">🌙 Dark</button>
+  <button (click)="setTheme('ocean')" class="btn">🌊 Ocean</button>
+</div>
+```
+
+### Theme Toggle Logic (Angular Component)
+
+```
+setTheme(theme: string) {
+  document.documentElement.className = theme;
+  localStorage.setItem('theme', theme);
+}
+
+ngOnInit() {
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    document.documentElement.className = saved;
+  }
+}
+```
+
+### 🎯 How It Works
+
+- Default theme is defined using **:root {}** in **styles.css**
+- Additional themes override CSS variables in separate files:
+- **dark.css** uses **.dark**
+- **ocean.css** uses **.ocean**
+- Tailwind utility classes use **var(--color-\*)** for theming
+- Changing the <html> class switches the theme
+- Selected theme is saved to localStorage
+
+### 🧩 Utility Classes
+
+#### Custom CSS variables are mapped to Tailwind classes using @layer utilities in styles.css
+
+```
+
+@layer utilities {
+  .bg-primary { background-color: var(--color-primary); }
+  .bg-secondary { background-color: var(--color-secondary); }
+
+  .text-primary { color: var(--color-primary); }
+  .text-secondary { color: var(--color-secondary); }
+
+  .border-primary { border-color: var(--color-primary); }
+  .border-secondary { border-color: var(--color-secondary); }
+
+}
+
+```
+
+#### Each theme sets these variables:
+
+- Light: in **:root** (default)
+- Dark: in **.dark**
+- Ocean: in **.ocean**
+
+### ✅ Summary
+
+- ✔️ Light (default), Dark, and Ocean themes included
+- 🎯 Works with Tailwind CSS v4 (no config file required)
+- 🛠️ Fully CSS-driven via custom properties
+- 🧠 Automatic theme persistence using **localStorage**
 
 ---
 
