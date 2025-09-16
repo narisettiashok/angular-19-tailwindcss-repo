@@ -121,7 +121,7 @@ To build and deploy your Angular project as a static website:
    ```bash
    npm run serve:ssr
    ```
-3. Your website will run at h
+3. Your website will run at
    ```bash
    http://localhost:4000/
    ```
@@ -134,6 +134,12 @@ To build and deploy your Angular project as a static website:
 angular-19-tailwindcss-repo/
 ├── src/
 │   ├── app/
+│   │   └── pages
+│   │   |     └── Home
+│   │   |     └── About
+│   │   |     └── Contact
+│   │   └── services
+│   │   └── shared
 │   │   └── app.component.ts
 │   │   └── app.component.html
 │   ├── assets/
@@ -141,7 +147,6 @@ angular-19-tailwindcss-repo/
 │   └── main.ts
 ├── public/
 ├── angular.json
-├── tailwind.config.js
 ├── postcss.config.js
 ├── package.json
 └── README.md

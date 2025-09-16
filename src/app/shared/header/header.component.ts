@@ -1,14 +1,16 @@
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { BrowserStorageService } from '../../services/browser-storage.service';
-import { isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [RouterLinkActive, RouterLink, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
+  isMenuOpen = false;
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private storageService: BrowserStorageService
@@ -23,7 +25,11 @@ export class HeaderComponent {
         document.documentElement.className = theme;
         this.storageService.set('theme', theme);
       }
-    } // SSR-safe
+    }
+
+    if (this.isMenuOpen) {
+      this.isMenuOpen = false;
+    }
   }
 
   applySystemTheme() {
